@@ -81,6 +81,8 @@ public:
 	uint8_t get_day() {return get_u8(AIS_PARAM_U8_DAY); };
 	uint8_t get_hour() {return get_u8(AIS_PARAM_U8_HOUR); };
 	uint8_t get_minute() {return get_u8(AIS_PARAM_U8_MINUTE); };
+	uint8_t get_second() {return get_u8(AIS_PARAM_U8_SECOND); };
+	uint16_t get_year() {return get_u16(AIS_PARAM_U16_YEAR); };
 	uint8_t get_partno() {return get_u8(AIS_PARAM_U8_PARTNO); };
 	uint8_t get_atontype() {return get_u8(AIS_PARAM_E_ATONTYPE); };
 	uint8_t get_atonstatus() {return get_u8(AIS_PARAM_U8_ATONSTATUS); };
@@ -107,6 +109,7 @@ public:
 	bool get_aton_off_pos_flag() {return get_flag(AIS_PARAM_B_ATON_OFF_POS); };
 	bool get_aton_virtual_flag() {return get_flag(AIS_PARAM_B_ATONVIRTUAL); };
 	bool get_aton_mode_flag() {return get_flag(AIS_PARAM_B_ATONMODE); };
+	bool get_trans_control_flag() {return get_flag(AIS_PARAM_B_TRANS_CONTROL); };
 	
 
 	const char* get_shipname() { return get_string(AIS_PARAM_T_SHIPNAME, shipname);};
@@ -166,6 +169,8 @@ private:
 		AIS_PARAM_B_ATONVIRTUAL,
 		AIS_PARAM_B_ATONMODE,
 		AIS_PARAM_B_ATONSPARE,
+		AIS_PARAM_U16_YEAR,
+		AIS_PARAM_B_TRANS_CONTROL,
 
 		AIS_PARAM_MAX,
 	};

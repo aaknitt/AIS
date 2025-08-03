@@ -87,7 +87,33 @@ void printPosReport(AIS& ais)
 void printBaseStationReport(AIS& ais)
 {
   printf("%d (StationReport): ", ais.get_numeric_type());
-  printf("mmsi=%d", ais.get_mmsi());
+  printf("mmsi=%d ", ais.get_mmsi());
+  printf("repeat=%d ", ais.get_repeat());
+  
+  // UTC Date/Time
+  uint16_t year = ais.get_year();
+  if (year == 0) {
+    printf("utc=N/A ");
+  } else {
+    printf("utc=%04d-%02d-%02d %02d:%02d:%02d ", 
+           year, ais.get_month(), ais.get_day(),
+           ais.get_hour(), ais.get_minute(), ais.get_timeStamp());
+  }
+  
+  // Position
+  int32_t lat = ais.get_latitude();
+  int32_t lon = ais.get_longitude();
+  if (lat == 91*600000 || lon == 181*600000) {
+    printf("pos=N/A ");
+  } else {
+    printf("pos=%.6f,%.6f ", lat/600000.0, lon/600000.0);
+  }
+  
+  printf("accuracy=%s ", ais.get_posAccuracy_flag() ? "high" : "low");
+  printf("epfd=%d ", ais.get_epfd());
+  printf("trans_ctrl=%d ", ais.get_trans_control_flag());
+  printf("raim=%s ", ais.get_raim_flag() ? "yes" : "no");
+  printf("radio=0x%x", ais.get_radio());
   printf("\n");
 }
 

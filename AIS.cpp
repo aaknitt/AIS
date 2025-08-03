@@ -85,6 +85,8 @@ const uint16_t AIS::AisParamLength[] = {
 		1,   // AIS_PARAM_B_ATONVIRTUAL
 		1,   // AIS_PARAM_B_ATONMODE
 		1,   // AIS_PARAM_B_ATONSPARE
+		14,  // AIS_PARAM_U16_YEAR
+		1,   // AIS_PARAM_B_TRANS_CONTROL
 };
 
 const struct AIS::AisTypeMsgPair AIS::AisMsgTypes[] = {
@@ -117,6 +119,19 @@ const struct AIS::AisParamPosPair AIS::AisMsgPosReportClassA[] = {
 };
 
 const struct AIS::AisParamPosPair AIS::AisMsgBaseStationReport[] = {
+		{ AIS_PARAM_U16_YEAR,        38 },
+		{ AIS_PARAM_U8_MONTH,        52 },
+		{ AIS_PARAM_U8_DAY,          56 },
+		{ AIS_PARAM_U8_HOUR,         61 },
+		{ AIS_PARAM_U8_MINUTE,       66 },
+		{ AIS_PARAM_U8_SECOND,       72 },
+		{ AIS_PARAM_B_ACCURACY,      78 },
+		{ AIS_PARAM_I32_LONG,        79 },
+		{ AIS_PARAM_I32_LAT,        107 },
+		{ AIS_PARAM_E_EPFD,         134 },
+		{ AIS_PARAM_B_TRANS_CONTROL,138 },
+		{ AIS_PARAM_B_RAIM,         148 },
+		{ AIS_PARAM_U32_RADIO,      149 },
 		{ AIS_PARAM_MAX, 0 } // Must be last
 };
 
